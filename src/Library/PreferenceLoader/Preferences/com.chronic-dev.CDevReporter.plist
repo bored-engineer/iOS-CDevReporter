@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>cell</key>
+		<string>PSLinkCell</string>
+		<key>label</key>
+		<string>Crash Reporter</string>
+	</dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>The CDevReporter is a application created by the Chronic-Dev team that sends your crash reports to the Chronic-Dev team in the hope that they can glean information about possible exploits to use in future jailbreaks. This app will run in the background and automatically submit crash-reports to the chronic-dev team. If you are on a mobile network, it WILL use data (although not much). If you do not want this, please uninstall this app immediately or disable it above. This jb version of the app is a port by innoying and is in no way guaranteed to work. Nor is innoying or anybody else responsible for issues with this application or results of using it.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.chronic-dev.CDevReporter</string>
+			<key>key</key>
+			<string>enabled</string>
+			<key>label</key>
+			<string>Enabled</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Crash Reporter</string>
+</dict>
+</plist>

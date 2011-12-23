@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf /usr/local/chronic-dev.CDevReporter/
+
+launchctl unload /System/Library/LaunchDaemons/com.chronic-dev.CDevReporter.plist

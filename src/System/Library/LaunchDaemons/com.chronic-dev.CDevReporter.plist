@@ -6,7 +6,8 @@
     <string>com.chronic-dev.CDevReporter</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/usr/local/chronic-dev.CDevReporter/launch.js</string>
+    	<string>/usr/local/bin/node</string>
+      	<string>/usr/local/chronic-dev.CDevReporter/launch.js</string>
     </array>
     <key>RunAtLoad</key>
     <true/>

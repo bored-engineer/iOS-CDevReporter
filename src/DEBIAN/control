@@ -1,6 +1,6 @@
 Package: com.chronic-dev.CDevReporter
 Name: CDevReporter
-Version: 1.3.3
+Version: 1.3.4
 Architecture: iphoneos-arm
 Description: CDevReporter is the simplest and easiest method to send you crash reports to the Chronic Dev team to help future jailbreaks. CDevReporter is a daemon that runs in the background on your iOS device and sends your crash reports to the Chronic Dev team. It sleeps until new crash reports are found, then attempts to upload them to the Chronic Dev (llc) servers. It WILL use data if you are not connected to a WiFi network when a crash report is generated. If you are not okay with this, DO NOT install this application. If you want to install this application, you can disable/enable it in settings once installed. This application is a port of the official CDevReporter. It is in no way guaranteed to work. The Chronic Dev team nor the developers of this port are in any way responsible for anything that may result from installing this app. For more information see the MIT license.
 Homepage: http://chronic-dev.org

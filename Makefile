@@ -5,7 +5,7 @@ VERSION=$(shell cat src/DEBIAN/control | grep Version | cut -d " " -f 2)
 ifeq ($(mode),release)
 	debug = false
 else
-   	debug = true;
+   	debug = true
 endif
 
 clean: 

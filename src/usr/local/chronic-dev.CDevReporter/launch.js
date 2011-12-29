@@ -120,30 +120,36 @@ function handleFiles(err, files, ecid){
 	var request = [];
 	//Add ecid to request
 	request.push(new Buffer(EncodeFieldPart(boundary, 'ecid', ecid+""), 'ascii'));
+	//New files list without dirs
+	var newfiles = [];
 	//Loop for each file
 	files.forEach(function (file, index) {
-	  	//Log
-	  	log( "Found file " + file );
-	  	//Gzip ALL THE FILES!!! (actually one at a time)
-	  	zlib.gzip(fs.readFileSync(file), function(err, result){
+		if(fs.statSync(file).isFile()){
+			//Add to newfiles
+			newfiles.push(file);
 	  		//Log
-	  		log( "Gzipped " + file );
-		  	//Create a temp array to hold the file data
-		  	var temp = [];
-	  		//Add to the form
-	  		temp.push(new Buffer(EncodeFilePart(boundary, 'application/x-gzip', "file"+pad(index, 4), path.basename(file)+".gz"), 'ascii'));
-	  		temp.push(result);
-	  		temp.push(new Buffer("\r\n--" + boundary + "--\r\n", 'ascii'));
-	  		//Add temp to the end of request
-	  		request.push.apply(request, temp);
-	  		//If this is the last 
-	  		if(files.length == ((request.length-1)/3)){
-				//Log
-	  			log("Attempting Upload");
-	  			//Upload
-	  			upload(request, boundary, files);
-	  		}
-	  	});
+	  		log( "Found file " + file );
+	  		//Gzip ALL THE FILES!!! (actually one at a time)
+	  		zlib.gzip(fs.readFileSync(file), function(err, result){
+	  			//Log
+	  			log( "Gzipped " + file );
+		  		//Create a temp array to hold the file data
+		  		var temp = [];
+	  			//Add to the form
+	  			temp.push(new Buffer(EncodeFilePart(boundary, 'application/x-gzip', "file"+pad(index, 4), path.basename(file)+".gz"), 'ascii'));
+	  			temp.push(result);
+	  			temp.push(new Buffer("\r\n--" + boundary + "--\r\n", 'ascii'));
+	  			//Add temp to the end of request
+	  			request.push.apply(request, temp);
+	  			//If this is the last 
+	  			if(newfiles.length == ((request.length-1)/3)){
+					//Log
+	  				log("Attempting Upload");
+	  				//Upload
+	  				upload(request, boundary, newfiles);
+	  			}
+	  		});
+		}
 	});
 }
 

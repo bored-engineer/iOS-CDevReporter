@@ -1,10 +1,10 @@
 Package: com.chronic-dev.CDevReporter
 Name: Crash Reporter
-Version: 1.2.1
+Version: 1.3.0
 Architecture: iphoneos-arm
 Description: somebody else put this here cuz i'm way to lazy. and while you're at it could you fix the prefs one too. Just make it sound nice.
 Homepage: http://chronic-dev.org
 Maintainer: Luke Young (innoying) <cydia@innoying.com>
 Author: Luke Young (innoying) <cydia@innoying.com>
-Depends: preferenceloader, coreutils, com.ericasadun.utilities, net.tootallnate.node, com.innoying.ecid
+Depends: preferenceloader, coreutils, com.ericasadun.utilities, net.tootallnate.node
 Section: System

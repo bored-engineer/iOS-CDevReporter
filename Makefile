@@ -17,6 +17,8 @@ minify:
 	java -XX:ReservedCodeCacheSize=64m -jar utils/google-compiler-20111003.jar --js src/usr/local/chronic-dev.CDevReporter/launch.js  --js_output_file build/usr/local/chronic-dev.CDevReporter/launch.js 
 
 package:
+	chmod -R 755 build/
+	chown -R root:wheel build/
 	dpkg-deb -b build CDevReporter-$(VERSION).deb
 	
 install:

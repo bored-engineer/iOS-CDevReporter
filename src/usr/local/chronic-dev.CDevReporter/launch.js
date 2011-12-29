@@ -188,6 +188,10 @@ function upload(request, boundary, files){
       		}
     	});
   	});
+  	//Add error catch and log
+  	post_request.on('error', function(e) {
+  		log('problem with request: ' + e.message);
+	});
   	//For each part of the request
   	for (var i = 0; i < request.length; i++) {
   		//Send it

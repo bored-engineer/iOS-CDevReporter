@@ -15,7 +15,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>The CDevReporter is a application created by the Chronic-Dev team that sends your crash reports to the Chronic-Dev team in the hope that they can glean information about possible exploits to use in future jailbreaks. This app will run in the background and automatically submit crash-reports to the chronic-dev team. If you are on a mobile network, it WILL use data (although not much). If you do not want this, please uninstall this app immediately or disable it above. This jb version of the app is a port by innoying and is in no way guaranteed to work. Nor is innoying or anybody else responsible for issues with this application or results of using it.</string>
+			<string>The CDevReporter application is the simplest and easiest method to send you crash reports to the Chronic Dev team to help future jailbreaks. You can enable and disable the background daemon above. This is a iOS port of the CDevReporter application by innoying. The source is avalible at http://goo.gl/NmJVg for free.</string>
 		</dict>
 		<dict>
 			<key>cell</key>

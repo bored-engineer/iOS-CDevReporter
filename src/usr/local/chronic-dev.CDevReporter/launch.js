@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var stalker = require("stalker");
 var zlib = require('zlib');
 var path = require('path');

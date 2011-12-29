@@ -219,7 +219,9 @@ function upload(request, boundary, files){
 function log(string){
 	var logfs = fs.createWriteStream('/var/mobile/Library/Logs/CDevReporter.txt', {'flags': 'a'});
 	string = string + "";
-	console.log(string);
+	if(DEBUG == true){
+		console.log(string);
+	}
 	logfs.write(new Date().getTime()+": "+string+"\n");
 }
 

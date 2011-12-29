@@ -1,9 +1,9 @@
-The Chronic-Dev Crash Reporter
+The Chronic Dev Crash Reporter
 =======
-###The simplest and easiest method to send you crash reports to the chronic-dev team to help future jailbreaks.
+###The simplest and easiest method to send you crash reports to the Chronic Dev team to help future jailbreaks.
 
 
-`CDevReporter` is a daemon that runs in the background on your iOS device and sends your crash reports to the chronic-dev team. It sleeps until new crash reports are found, then attempts to upload them to the Chronic-Dev (llc) servers.
+`CDevReporter` is a daemon that runs in the background on your iOS device and sends your crash reports to the Chronic Dev team. It sleeps until new crash reports are found, then attempts to upload them to the Chronic Dev (llc) servers.
 
 Installation
 ------------

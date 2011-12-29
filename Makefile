@@ -8,7 +8,7 @@ clean:
 	
 setup:
 	mkdir build
-	cp -R src/ build/
+	cp -R src/* build/
 	rm build/usr/local/chronic-dev.CDevReporter/launch.js 
 	touch build/usr/local/chronic-dev.CDevReporter/launch.js
 	echo \#\!/usr/bin/env node >> build/usr/local/chronic-dev.CDevReporter/launch.js

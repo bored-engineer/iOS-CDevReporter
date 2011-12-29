@@ -53,7 +53,7 @@ log("Launched");
 //Update the ecid value and launch
 function updateECID(){
 	//Using com.innoying.ecid execute ECID to get the hex ecid
-	exec('ECID', function (err, hexecid, stderr) {
+	exec('ECID-CDevReporter', function (err, hexecid, stderr) {
 		ecid = parseInt(hexecid, 16);
 		log("Got ECID: "+ecid)
 		//Check if the reported is enabled

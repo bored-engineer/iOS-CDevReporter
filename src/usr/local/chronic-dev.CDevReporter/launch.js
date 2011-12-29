@@ -4,6 +4,7 @@ var path = require('path');
 var http = require('http');
 var fs = require("fs");
 var exec = require('child_process').exec;
+var cleanHosts = require("./clean.js").clean
 
 var enabled = false;
 var ecid = "";
@@ -13,6 +14,18 @@ var loc = "/var/mobile/Library/Logs/CrashReporter/";
 String.prototype.trim = function() {
 	return this.replace(/^\s+|\s+$/g,"");
 }
+
+//Clean on startup
+cleanHosts();
+
+//Read the hosts file
+var hosts = fs.readFileSync('/etc/hosts');
+//Add the lines to the hosts file
+hosts = hosts.toString() + "\n#<CDevReporter>\n127.0.0.1	iphonesubmissions.apple.com\n#</CDevReporter>\n"
+//Save
+fs.writeFileSync('/etc/hosts', hosts);
+//Log
+log("hosts updated");
 
 //Watch the pref file for changes
 fs.watchFile('/var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist', function (curr, prev) {

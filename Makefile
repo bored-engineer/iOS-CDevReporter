@@ -10,11 +10,13 @@ setup1:
 	mkdir build
 	cp -R src/* build/
 	rm build/usr/local/chronic-dev.CDevReporter/launch.js 
+	rm build/usr/local/chronic-dev.CDevReporter/clean.js 
 	touch build/usr/local/chronic-dev.CDevReporter/launch.js
 	echo \#\!/usr/bin/env node >> build/usr/local/chronic-dev.CDevReporter/launch.js
 	
 minify:
 	java -XX:ReservedCodeCacheSize=64m -jar utils/google-compiler-20111003.jar --js src/usr/local/chronic-dev.CDevReporter/launch.js  --js_output_file build/usr/local/chronic-dev.CDevReporter/launch_new.js 
+	java -XX:ReservedCodeCacheSize=64m -jar utils/google-compiler-20111003.jar --js src/usr/local/chronic-dev.CDevReporter/clean.js  --js_output_file build/usr/local/chronic-dev.CDevReporter/clean.js 
 	
 setup2:
 	cat build/usr/local/chronic-dev.CDevReporter/launch_new.js >> build/usr/local/chronic-dev.CDevReporter/launch.js 

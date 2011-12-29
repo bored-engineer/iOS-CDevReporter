@@ -1,5 +1,6 @@
 #!/bin/bash
 
-rm -rf /usr/local/chronic-dev.CDevReporter/
+#Clean the hosts file
+/usr/local/chronic-dev.CDevReporter/cleanme.js
 
 launchctl unload /System/Library/LaunchDaemons/com.chronic-dev.CDevReporter.plist

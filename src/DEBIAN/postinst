@@ -1,12 +1,5 @@
 #!/bin/bash
 
-echo "127.0.0.1 iphonesubmissions.apple.com" >> /etc/hosts
-
-mkdir /usr/local/chronic-dev.CDevReporter
-pushd /usr/local/chronic-dev.CDevReporter
-	npm install stalker
-popd
-
 launchctl load /System/Library/LaunchDaemons/com.chronic-dev.CDevReporter.plist
 
 

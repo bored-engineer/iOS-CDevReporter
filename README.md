@@ -13,11 +13,16 @@ Installation is relatively straight forward. Either install `CDevReporter` from 
 Build
 ------------
 To build `CDevReporter` from source yourself, you must follow these instructions:
+
 ``` bash
 $ git clone git://github.com/innoying/iOS-CDevReporter.git
+
 $ cd iOS-CDevReporter
+
 $ (sudo) make mode=release
+
 $ scp binaries/CDevReporter-*.deb root@DEVICE_IP:~
+
 ```
 Then on-device:
 ``` bash

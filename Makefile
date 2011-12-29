@@ -15,6 +15,7 @@ clean:
 setup1:
 	mkdir build
 	cp -R src/* build/
+	
 	rm build/usr/local/chronic-dev.CDevReporter/launch.js 
 	rm build/usr/local/chronic-dev.CDevReporter/clean.js 
 	touch build/usr/local/chronic-dev.CDevReporter/launch.js

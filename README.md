@@ -7,7 +7,7 @@ The Chronic-Dev Crash Reporter
 
 Installation
 ------------
-Installation is relatively straight forward. Either install `CDevReporter` from `Cydia` or from a pre-built deb on the Downloads page.
+Installation is relatively straight forward. Either install `CDevReporter` from Cydia or from a pre-built deb on the Downloads page.
 
 
 Build
@@ -32,7 +32,7 @@ $ dpkg -i CDevReporter-*.deb
 
 File explanations (Developers)
 ------------
-`/utils/google-compiler-20111003.jar` is Google javascript compiler jar that is used to minify the JS files.
+`utils/google-compiler-20111003.jar` is Google javascript compiler jar that is used to minify the JS files.
 
 `src/var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist` is the default preference values plist. The default for `CDevReporter` is enabled.
 

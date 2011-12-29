@@ -1,3 +1,0 @@
-FIX: Remove hosts in prerm
-FIX: Move host opperations to main script instead of preandpost inst/rm then make it run as root (has to)
-FIX: Description to have the legal stuff in it. (Like that it's submitting in the background)

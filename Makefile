@@ -23,7 +23,7 @@ setup2:
 package:
 	chmod -R 755 build/
 	chown -R root:wheel build/
-	mkdir binaries
+	mkdir -p binaries
 	dpkg-deb -b build binaries/CDevReporter-$(VERSION).deb
 	
 install:

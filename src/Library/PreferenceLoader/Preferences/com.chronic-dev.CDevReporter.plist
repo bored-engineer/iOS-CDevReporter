@@ -7,7 +7,7 @@
 		<key>cell</key>
 		<string>PSLinkCell</string>
 		<key>label</key>
-		<string>Crash Reporter</string>
+		<string>CDevReporter</string>
 	</dict>
 	<key>items</key>
 	<array>
@@ -31,6 +31,6 @@
 		</dict>
 	</array>
 	<key>title</key>
-	<string>Crash Reporter</string>
+	<string>CDevReporter</string>
 </dict>
 </plist>

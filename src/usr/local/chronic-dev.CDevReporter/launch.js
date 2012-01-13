@@ -1,4 +1,4 @@
-var watcherPref = require('watch-tree').watchTree("/var/mobile/Library/Preferences", {'sample-rate': 600});
+var watcherPref = require('watch-tree').watchTree("/var/mobile/Library/Preferences", {'sample-rate': 10});
 var watcherCrash = require('watch-tree').watchTree("/var/mobile/Library/Logs/CrashReporter", {'sample-rate': 6000});
 var zlib = require('zlib');
 var path = require('path');
@@ -31,10 +31,12 @@ log("hosts updated");
 //Watch the pref file for changes
 watcherPref.on('fileCreated', function(path) {
 	if(path == "/var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist"){
+		log("Created");
 		updateECID();
 	}
 }).on('fileModified', function(path) {
 	if(path == "/var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist"){
+		log("Modified");
 		updateECID();
 	}
 });
@@ -237,3 +239,8 @@ function log(string){
 
 //Start
 updateECID();
+
+//Catch errors
+process.on('uncaughtException', function (exception) {
+   	console.log(exception);
+});

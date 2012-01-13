@@ -1,6 +1,6 @@
 
 {exec} = require 'child_process'
-sys = require 'sys'
+util = try require 'util' catch e then require 'sys'
 
 
 exports.check_exec_options = check_exec_options = (cmd, options, callback) ->
@@ -26,11 +26,11 @@ exports.listsContainSameElements = listsContainSameElements = (t, arr1, arr2) ->
 
 
 exports.EventBuffer = class EventBuffer
-  
+
   constructor: () ->
     @stack = []
     @callback = null
-  
+
   wait: (callback) ->
     if @stack.length > 0
       event = @stack.pop()
@@ -39,14 +39,14 @@ exports.EventBuffer = class EventBuffer
       if @callback
         throw new Error "Only store one callback"
       @callback = callback
-  
+
   expect: (t, args...) ->
-    sys.debug "Expecting #{args[0]}..."
+    util.debug "Expecting #{args[0]}..."
     @wait (event) ->
       for x, i in args[...-1]
         t.equal event[i], x
       args[-1...][0](event)
-  
+
   event: (event) ->
     if @callback
       callback = @callback

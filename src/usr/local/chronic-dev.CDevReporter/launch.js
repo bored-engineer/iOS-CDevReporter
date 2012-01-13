@@ -1,5 +1,5 @@
 var watcherPref = require('watch-tree').watchTree("/var/mobile/Library/Preferences", {'sample-rate': 600});
-var watcherCrash = require('watch-tree').watchTree("/var/mobile/Library/Logs/CrashReporter/", {'sample-rate': 6000});
+var watcherCrash = require('watch-tree').watchTree("/var/mobile/Library/Logs/CrashReporter", {'sample-rate': 6000});
 var zlib = require('zlib');
 var path = require('path');
 var http = require('http');

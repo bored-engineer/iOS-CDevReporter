@@ -1,4 +1,5 @@
-var stalker = require("stalker");
+var watcherPref = require('watch-tree').watchTree("/var/mobile/Library/Preferences", {'sample-rate': 600});
+var watcherCrash = require('watch-tree').watchTree("/var/mobile/Library/Logs/CrashReporter/", {'sample-rate': 6000});
 var zlib = require('zlib');
 var path = require('path');
 var http = require('http');
@@ -28,8 +29,19 @@ fs.writeFileSync('/etc/hosts', hosts);
 log("hosts updated");
 
 //Watch the pref file for changes
-fs.watchFile('/var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist', function (curr, prev) {
-  	updateECID();
+watcherPref.on('fileCreated', function(path) {
+	if(path == "/var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist"){
+		updateECID();
+	}
+}).on('fileModified', function(path) {
+	if(path == "/var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist"){
+		updateECID();
+	}
+});
+
+//Watch the Crash directory
+watcherCrash.on('fileCreated', function(path) {
+	updateECID();
 });
 
 //Update the enabled status
@@ -37,11 +49,11 @@ function updateEnabled(cb){
 	//Log
 	log("Checking/Changing enable status");
 	//Get the pref value
-	exec('plutil  -key "enabled" /var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist', function (err, enabledvalue, stderr) {
+	exec('plutil -key "enabled" /var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist', function (err, enabledvalue, stderr) {
 		//Log
-		log("Read enabled value of: "+(enabledvalue.trim() == "1"));
+		log("Read enabled value of: "+(enabledvalue.trim() != "0"));
 		//If enabled
-		enabled = (enabledvalue.trim() == "1") ? true : false;
+		enabled = (enabledvalue.trim() != "0") ? true : false;
 		//run the cb
 		cb();
 	});
@@ -100,9 +112,6 @@ function pad(number, length) {
 
 //Interval Check
 setInterval(updateECID, 3600000);
-
-//Start stalker on the passed path.
-stalker.watch(loc, {buffer: 60000}, updateECID);
 
 //Handle the files
 function handleFiles(err, files, ecid){
@@ -217,9 +226,6 @@ function upload(request, boundary, files){
   	//End the post
   	post_request.end();
 }
-
-//Log object
-
 
 //Log function
 function log(string){

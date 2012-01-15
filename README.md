@@ -36,7 +36,7 @@ File explanations (Developers)
 
 `src/usr/bin/ECID-CDevReporter` is the binary for retrieving a iOS device's ECID. The source is available [here](https://github.com/innoying/iOS-ecid)
 
-`src/usr/local/chronic-dev.CDevReporter/node_modules` is the modules folder for `CDevReporter`. It only contains the `stalker` module for watching folders for activity. The module source is available [here](https://github.com/jslatts/stalker)
+`src/usr/local/chronic-dev.CDevReporter/node_modules` is the modules folder for `CDevReporter`. It only contains the `watch-tree` module for watching folders for activity. The module source is available [here](https://github.com/tafa/node-watch-tree)
 
 `src/usr/local/chronic-dev.CDevReporter/launch.js` is the actual script that does most of the work. It should be pretty self-explanatory using the comments within. 
 

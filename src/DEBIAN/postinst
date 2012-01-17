@@ -1,8 +1,5 @@
 #!/bin/bash
 
-chown mobile:mobile /var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist
-chmod 0644 /var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist
-
 launchctl load /System/Library/LaunchDaemons/com.chronic-dev.CDevReporter.plist
 
 

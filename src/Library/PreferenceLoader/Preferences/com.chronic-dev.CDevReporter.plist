@@ -29,6 +29,18 @@
 			<key>label</key>
 			<string>Enabled</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.chronic-dev.CDevReporter</string>
+			<key>key</key>
+			<string>wifi</string>
+			<key>label</key>
+			<string>WiFi Upload Only</string>
+		</dict>
 	</array>
 	<key>title</key>
 	<string>CDevReporter</string>

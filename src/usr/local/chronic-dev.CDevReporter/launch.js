@@ -68,7 +68,7 @@ function updateEnabled(cb){
         				//Log
         				log("Read net status value of: "+(net.trim() == "WIFI"));
         				//Chance upload status
-        				upload == (net.trim() == "WIFI");
+        				upload = (net.trim() == "WIFI");
         				//run the cb
 					cb();
 				});

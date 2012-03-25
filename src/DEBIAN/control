@@ -6,5 +6,5 @@ Description: CDevReporter is the simplest and easiest method to send you crash r
 Homepage: http://chronic-dev.org
 Maintainer: Luke Young (innoying) <cydia@innoying.com>
 Author: Luke Young (innoying) <cydia@innoying.com>
-Depends: preferenceloader, coreutils, com.ericasadun.utilities, net.tootallnate.node, gsc.armv7
+Depends: preferenceloader, coreutils, com.ericasadun.utilities, net.tootallnate.node, com.innoying.sbutils
 Section: System

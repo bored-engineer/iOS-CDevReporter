@@ -8,6 +8,7 @@ var exec = require('child_process').exec;
 var cleanHosts = require("./clean.js").clean
 
 var enabled = false;
+var upload = false;
 var ecid = "";
 var loc = "/var/mobile/Library/Logs/CrashReporter/";
 
@@ -53,11 +54,31 @@ function updateEnabled(cb){
 	//Get the pref value
 	exec('plutil -key "enabled" /var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist', function (err, enabledvalue, stderr) {
 		//Log
-		log("Read enabled value of: "+(enabledvalue.trim() != "0"));
+		log("Read enabled value of: "+(enabledvalue.trim() == "1"));
 		//If enabled
-		enabled = (enabledvalue.trim() != "0") ? true : false;
-		//run the cb
-		cb();
+		enabled = (enabledvalue.trim() == "1") ? true : false;
+		//Get the pref value
+		exec('plutil -key "wifi" /var/mobile/Library/Preferences/com.chronic-dev.CDevReporter.plist', function (err, wifivalue, stderr) {
+			//Log
+			log("Read wifi value of: "+(wifivalue.trim() == "1"));
+			//If wifi toggle is on
+			if(wifivalue.trim() == "1"){
+				//Get the pref value
+				exec('sbnetwork battleground-fw2ckdbmqg.elasticbeanstalk.com', function (err, net, stderr) {
+        				//Log
+        				log("Read net status value of: "+(net.trim() == "WIFI"));
+        				//Chance upload status
+        				upload == (net.trim() == "WIFI");
+        				//run the cb
+					cb();
+				});
+			}else{
+				//Allow upload.
+				upload = true;
+				//run the cb
+				cb();
+			}
+		});
 	});
 }
 
@@ -120,6 +141,12 @@ function handleFiles(err, files, ecid){
 	if(!enabled){
 		//Log
 		log("Not continuing due to user disabling CDevReporter")
+		//Exit
+		return false;
+	}
+	if(!upload){
+		//Log
+		log("Not continuing due to upload status failure")
 		//Exit
 		return false;
 	}
